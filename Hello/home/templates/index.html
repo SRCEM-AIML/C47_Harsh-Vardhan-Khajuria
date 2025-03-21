@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to My Website - Explore our products, services, and more!">
+  <title>{% block title %} Welcome | My Website {% endblock %}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      background-color: #007bff;
+      padding: 1em 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav li {
+      margin: 0 1.5em;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ddd;
+    }
+    header {
+      text-align: center;
+      padding: 3em 0;
+    }
+
+    h1 {
+      
+      font-size: 2.8em;
+      color: #007bff;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      text-align: center;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    footer {
+      margin-top: 2em;
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      padding: 1em 0;
+      background: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About Us</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/services.html">Services</a></li>
+    </ul>
+  </nav>
+
+  {% block header %}<header><h1>Welcome to My Website!</h1>
+  </header>{% endblock %}
+  
+  {% block content %}
+  <main>
+    
+    
+    
+    <p>Thanks for visiting! We're excited to have you here. Explore our site to discover amazing things.</p>
+    <p>Here are some things you can do:</p>
+    <ul>
+      <li>Learn about our <a href="/services.html">products and services</a>.</li>
+      <li>Read our latest <a href="/about.html">about us</a>.</li>
+      <li>Contact us on the <a href="/contact">contact page</a>.</li>
+    </ul>
+    
+  </main>
+  {% endblock %}
+  <footer>
+    &copy; 2024 My Website. All rights reserved.
+  </footer>
+</body>
+</html>
