@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Signal Control Model</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="H:\Software Lab-III\Traffic\dashboard\static\css\style.css">
+</head>
+<body>
+    <div class="container my-4">
+        <header class="text-center mb-5">
+            <h1 class="display-4">Traffic Signal Control Model</h1>
+            <p class="lead">Simulating traffic density and ambulance movement prioritization</p>
+        </header>
+
+        <div class="row">
+        
+
+            <div class="col-lg-4">
+                <!-- Control Panel -->
+                <div class="card control-panel mb-4">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-sliders me-2"></i>Control Panel
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Traffic Density Controls -->
+                        <h4 class="section-title">
+                            <i class="fas fa-car me-2"></i>Traffic Density
+                        </h4>
+                        
+                        <div class="mb-3">
+                            <label for="northSouthDensity" class="form-label">North-South Traffic</label>
+                            <div class="d-flex align-items-center">
+                                <input type="range" class="form-range me-2" id="northSouthDensity" min="0" max="10" value="5">
+                                <div class="density-value" id="northSouthValue">5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="eastWestDensity" class="form-label">East-West Traffic</label>
+                            <div class="d-flex align-items-center">
+                                <input type="range" class="form-range me-2" id="eastWestDensity" min="0" max="10" value="5">
+                                <div class="density-value" id="eastWestValue">5</div>
+                            </div>
+                        </div>
+
+                        <!-- Ambulance Control -->
+                        <div class="mt-4">
+                            <h4 class="section-title">
+                                <i class="fas fa-ambulance me-2"></i>Emergency Mode
+                            </h4>
+                            <div class="mb-3">
+                                <label class="form-label">Ambulance Direction</label>
+                                <select class="form-select" id="ambulanceDirection">
+                                    <option value="none">No Ambulance</option>
+                                    <option value="north">From North</option>
+                                    <option value="south">From South</option>
+                                    <option value="east">From East</option>
+                                    <option value="west">From West</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-danger d-block w-100" id="dispatchAmbulance">
+                                <i class="fas fa-ambulance me-2"></i>Dispatch Ambulance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Panel -->
+                <div class="card status-panel">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-info-circle me-2"></i>Status
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert status-alert" id="statusMessage">
+                            <i class="fas fa-traffic-light me-2"></i>Normal traffic flow in operation.
+                        </div>
+                        
+                        <div class="status-item">
+                            <span><i class="fas fa-road me-2"></i>Current Priority:</span>
+                            <span class="status-value" id="currentPriority">North-South</span>
+                        </div>
+                        
+                        <div class="status-item">
+                            <span><i class="fas fa-sync-alt me-2"></i>Mode:</span>
+                            <span class="status-value" id="currentMode">Normal</span>
+                        </div>
+                        
+                        <div class="status-item">
+                            <span><i class="fas fa-clock me-2"></i>Cycle Time:</span>
+                            <span class="status-value" id="cycleTime">60 seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Information Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-question-circle me-2"></i>How It Works
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-section">
+                            <h5><i class="fas fa-balance-scale me-2"></i>Traffic Density Priority</h5>
+                            <p>The system adjusts traffic light timing based on the density of traffic in each direction. 
+                               Higher density roads get longer green light durations.</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h5><i class="fas fa-ambulance me-2"></i>Ambulance Priority</h5>
+                            <p>When an ambulance is dispatched, the system immediately prioritizes the ambulance's direction,
+                               changing signals to allow the emergency vehicle to pass through the intersection without delays.</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h5><i class="fas fa-eye me-2"></i>Visual Indicators</h5>
+                            <ul>
+                                <li>Vehicle density is represented by the number of vehicles on each road</li>
+                                <li>Ambulances are marked with flashing lights and a distinctive siren animation</li>
+                                <li>Traffic lights show countdown timers for each phase</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
