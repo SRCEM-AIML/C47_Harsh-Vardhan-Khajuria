@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pipeline {
     agent any
 
@@ -34,3 +35,41 @@ pipeline {
 
     }
 }
+=======
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = 'harshvardhan295/django_project'
+        CONTAINER_NAME = 'studentproject'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/SRCEM-AIML/C47_Harsh-Vardhan-Khajuria/tree/main/StudentProject'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                bat "docker build -t %IMAGE_NAME% ."
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'Harsh_295', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        bat """
+                        echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin
+                        docker push %IMAGE_NAME%
+                        """
+                    }
+                }
+            }
+        }
+
+    }
+}
+>>>>>>> 09663a60ec852e79834629a284137a34d0bb520c
