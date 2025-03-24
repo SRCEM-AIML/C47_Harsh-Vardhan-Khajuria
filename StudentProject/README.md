@@ -28,7 +28,7 @@ Before running this project, ensure the following tools are installed on your sy
 
 ### **Step 1: Clone the Repository**
 Pull the source code from the Git repository:
-```bash
+
 git clone https://github.com/SRCEM-AIML/C47_Harsh-Vardhan-Khajuria.git
 cd C47_Harsh-Vardhan-Khajuria/StudentProject
 
